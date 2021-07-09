@@ -108,6 +108,14 @@ def main(args):
     MODEL = importlib.import_module(args.model)
 
     classifier = MODEL.get_model(args, num_part, normal_channel=args.normal).cuda()
+    print("trying to print classifier: ",classifier)
+    #print("trying something: ",classifier.forward())
+    
+    #classifier.bns3.register_forward_hook(get_activation('bns3'))
+    #x=torch.randn(1,25)
+    #output=model(x)
+    #print(activation['bns3'])
+
     criterion = MODEL.get_loss().cuda()
 
 
